@@ -11,7 +11,7 @@ function Home() {
 
         <a
           className="home-login-btn"
-          href="http://127.0.0.1:8000/login/"
+          href="https://manufacturing-management-system-backend.onrender.com/login/"
         >
           Admin Login
         </a>
@@ -34,12 +34,12 @@ function Home() {
         </p>
 
         <div className="home-actions">
-          <a
-            className="home-primary-btn"
-            href="http://127.0.0.1:8000/login/"
-          >
-            Admin Login →
-          </a>
+         <a
+  className="home-primary-btn"
+  href="https://manufacturing-management-system-backend.onrender.com/login/"
+>
+  Admin Login →
+</a>
 
           <a className="home-secondary-btn" href="#home-features">
             Explore Features

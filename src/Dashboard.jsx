@@ -28,6 +28,8 @@ const summaries = [
   { title: "Pending Production", icon: "⏳", style: "pending" },
 ];
 
+const API_BASE_URL =
+  "https://manufacturing-management-system-backend.onrender.com";
 function App() {
   const navigate = useNavigate();
 
@@ -41,7 +43,7 @@ function App() {
   });
 
  useEffect(() => {
-  fetch("http://127.0.0.1:8000/api/auth-status/", {
+  fetch(`${API_BASE_URL}/api/auth-status/`, {
     credentials: "include",
   })
     .then((response) => {
@@ -52,11 +54,11 @@ function App() {
     })
     .then((data) => {
       if (!data.is_authenticated) {
-        window.location.href = "http://127.0.0.1:8000/login/";
+        window.location.href = "https://manufacturing-management-system-backend.onrender.com/login/";
         return;
       }
 
-      return fetch("http://127.0.0.1:8000/api/dashboard-stats/", {
+      return fetch(`${API_BASE_URL}/api/dashboard-stats/`, {
         credentials: "include",
       })
         .then((response) => {
@@ -70,7 +72,7 @@ function App() {
     })
     .catch((error) => {
       console.error("Authentication error:", error);
-      window.location.href = "http://127.0.0.1:8000/login/";
+      window.location.href = `${API_BASE_URL}/login/`;
     });
 }, []);
 
@@ -90,7 +92,7 @@ return (
           <button
             className="logout-btn"
             onClick={() => {
-              window.location.href = "http://127.0.0.1:8000/logout/";
+             window.location.href = `${API_BASE_URL}/logout/`;
             }}
           >
             Logout
@@ -146,9 +148,9 @@ return (
               <div className="module-icon">{item.icon}</div>
               <h3>{item.title}</h3>
               <p>{item.desc}</p>
-              <a href={`http://127.0.0.1:8000/api${item.link}`}>
-                {item.button} <span aria-hidden="true">→</span>
-              </a>
+              <a href={`${API_BASE_URL}/api${item.link}`}>
+  {item.button} <span aria-hidden="true">→</span>
+</a>
             </article>
           ))}
         </section>
